@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Sign-Up</title>
+<style>
+input[type=text],
+   input[type=password],input[type=email]
+   {
+       width: 20%;
+       padding: 12px 20px;
+       margin: 8px 0;
+       display: inline-block;
+       border: 2px solid rgb(10, 10, 10);
+       box-sizing: border-box;
+       border-radius: 12px;
+   }
+   
+   h1 {
+  display: block;
+  font-size: 3em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+ select{
+        width: 120px;
+        height: 30px;
+        border: 1px solid rgb(243, 236, 236);
+        font-size: 18px;
+        color: #080808;
+        background-color: rgb(221, 214, 214);
+        border-radius: 5px;
+        
+      }  
+  
+input[type=checkbox]{
+  width: 45px;
+  height: 15px;
+  background: #555;
+  border-radius: 5px;
+}
+
+  
+
+   input[type="submit"] {
+       background-color: rgb(17, 16, 17);
+       color: white;
+       padding: 15px 20px;
+       margin: 8px 0;
+       cursor: pointer;
+       width: 20%;
+       border-radius: 12px;
+       border: 2px solid #d5e6d5;
+       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+   }
+</style>
+
+
+</head>
+<body bgcolor="black"  text="white" >
+   <script>
+      function justcheckfield()
+      {
+         var empt1 = document.forms["signupform"]["fname"].value;
+         var empt5 = document.forms["signupform"]["lname"].value;
+         var empt2 = document.forms["signupform"]["regd"].value;
+         var empt3 = document.forms["signupform"]["email"].value;
+         var empt4 = document.forms["signupform"]["pwd"].value;
+         var empt7 = document.forms["signupform"]["pwd2"].value;
+         var empt6 = document.forms["signupform"]["rb"].value;
+         if (empt1 == "" || empt2 == "" || empt3 == "" || empt4 == "" || empt5 =="" || empt6=="" || empt7=="")
+         {
+             alert("Please fill all fields");
+             return false;
+         }
+      }
+   </script>
+<center><h1>Sign-Up Form</h1><br></center>
+<form  name="signupform" action="insert_user.php" method="POST" onsubmit="return justcheckfield()">
+<center>First Name<input type="text" name="fname" ></center><br>
+<center>Last Name <input type="text" name="lname" ></center><br>
+<center>Registration NO:<input type="text" name="regd" ></center><br>
+<center>Email ID <input type="email" name="email"></center><br>
+<center>Password <input type="password" name="pwd"></center><br>
+<center>Repeat Password <input type="password" name="pwd2"></center><br>
+<center>student <input type="radio" name="rb" value="student"></center>
+<center>professor<input type="radio" name="rb" value="professor"></center><br>
+<center><input type="submit"></center>
+</form>
+</body>
+</html>

@@ -35,25 +35,24 @@
         </style>
     </head>
     <body> 
-    <form name="incourse" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <center>Place Image Link<input type='text' name='imglink'></center><br><br>
-        <center>Course Duration<input type='text' name='duration'></center><br><br>
+    <form name="del_acc" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <center>Enter RegisterId <input type='text' name='delregd'></center><br><br>
         <center><button type='submit'>submit</button>
     </form>
     <?php
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
          include("db_connect.php");
-         $imglink=' ';
-         $course_duration=' ';
-         $imglink=$_POST['imglink'];
-         $course_duration=$_POST['duration'];
-         $enroll="Enroll";
-         $query="INSERT into `courses` () values('$imglink','$course_duration','$enroll')";
+         $regd=' ';
+        
+         $regd=$_POST['delregd'];
+         
+         
+         $query="DELETE FROM users WHERE regd='$regd'";
          if(mysqli_query($conn,$query))
          {
-            echo "<center><h3>course added sucessfully<h3></center>";
-            echo "<center><a href='addcourse.php'<button>submit another</button></a></center>";
+            echo "<center><h3>Account Deleted sucessfully<h3></center>";
+            echo "<center><a href='delete_acc.php'<button>Delete another</button></a></center>";
          }
          else{
              echo "insertion failed";

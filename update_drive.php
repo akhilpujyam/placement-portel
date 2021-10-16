@@ -35,31 +35,38 @@
         </style>
     </head>
     <body> 
-    <form name="incourse" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <center>Place Image Link<input type='text' name='imglink'></center><br><br>
-        <center>Course Duration<input type='text' name='duration'></center><br><br>
+    <form name="update_drive" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <center>Company Name <input type='text' name='company'></center><br><br>
+        <center>Employ Role <input type='text' name='e_role'></center><br><br>
+        <center>Salary <input type='text' name='salary'></center><br><br>
+        <center>Registration date<input type='text' name="R_date"></center><br><br>
+        <center>Exam Date<input type='text' name='e_date'></center><br><br>
         <center><button type='submit'>submit</button>
     </form>
     <?php
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
          include("db_connect.php");
-         $imglink=' ';
-         $course_duration=' ';
-         $imglink=$_POST['imglink'];
-         $course_duration=$_POST['duration'];
-         $enroll="Enroll";
-         $query="INSERT into `courses` () values('$imglink','$course_duration','$enroll')";
+         $registration=$comp=$sal=$erole=$edate="";
+        
+         $registration=$_POST['R_date'];
+         $comp=$_POST['company'];
+         $erole=$_POST['e_role'];
+         $sal=$_POST['salary'];
+         $edate=$_POST['e_date'];
+         
+         
+         $query="INSERT into campus_drive values('$comp','$erole','$sal','$registration','$edate')";
          if(mysqli_query($conn,$query))
          {
-            echo "<center><h3>course added sucessfully<h3></center>";
-            echo "<center><a href='addcourse.php'<button>submit another</button></a></center>";
+            echo "<center><h3>campus added sucessfully<h3></center>";
+            echo "";
          }
          else{
              echo "insertion failed";
          }    
         }
     ?>
-
+               <center><a href='update_drive.php'><button>Add another</button></a></center>
     </body>
 </html>
